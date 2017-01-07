@@ -16,7 +16,7 @@
 
       <% @hostphotos.each do |hostphoto| %>
       <tr>
-        <td><%= hostphoto.photo_id %></td>
+        <td><%= hostphoto.photo.created_at %></td>
         <td><%= hostphoto.listing_id %></td>
         <td>
           <a href="/hostphotos/<%= hostphoto.id %>" class="btn btn-primary">Show</a>
