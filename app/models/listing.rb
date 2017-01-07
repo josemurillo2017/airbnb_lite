@@ -1,6 +1,9 @@
 class Listing < ApplicationRecord
   # Direct associations
 
+  has_many   :hostlistings,
+             :dependent => :destroy
+
   has_many   :availibiliities,
              :dependent => :destroy
 
