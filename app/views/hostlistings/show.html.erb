@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Host</dt>
-      <dd><%= @hostlisting.host_id %></dd>
+      <dd>
+        <% if @hostlisting.host.present? %>
+          <a href="/hosts/<%= @hostlisting.host_id %>">
+            <%= @hostlisting.host.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Listing</dt>
-      <dd><%= @hostlisting.listing_id %></dd>
+      <dd>
+        <% if @hostlisting.listing.present? %>
+          <a href="/listings/<%= @hostlisting.listing_id %>">
+            <%= @hostlisting.listing.title %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

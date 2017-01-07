@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Listing</dt>
-      <dd><%= @hostpolicy.listing_id %></dd>
+      <dd>
+        <% if @hostpolicy.listing.present? %>
+          <a href="/listings/<%= @hostpolicy.listing_id %>">
+            <%= @hostpolicy.listing.title %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Policy</dt>
-      <dd><%= @hostpolicy.policy_id %></dd>
+      <dd>
+        <% if @hostpolicy.policy.present? %>
+          <a href="/policies/<%= @hostpolicy.policy_id %>">
+            <%= @hostpolicy.policy.description %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

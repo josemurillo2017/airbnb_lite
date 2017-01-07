@@ -17,7 +17,13 @@
 
       <% @guest_reviews.each do |guest_review| %>
       <tr>
-        <td><%= guest_review.guest.created_at %></td>
+        <td>
+          <% if guest_review.guest.present? %>
+            <a href="/guests/<%= guest_review.guest.id %>">
+              <%= guest_review.guest.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td><%= guest_review.overall_rating %></td>
         <td><%= guest_review.body %></td>
         <td>

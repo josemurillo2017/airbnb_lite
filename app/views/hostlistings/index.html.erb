@@ -16,8 +16,20 @@
 
       <% @hostlistings.each do |hostlisting| %>
       <tr>
-        <td><%= hostlisting.host.created_at %></td>
-        <td><%= hostlisting.listing.title %></td>
+        <td>
+          <% if hostlisting.host.present? %>
+            <a href="/hosts/<%= hostlisting.host.id %>">
+              <%= hostlisting.host.created_at %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if hostlisting.listing.present? %>
+            <a href="/listings/<%= hostlisting.listing.id %>">
+              <%= hostlisting.listing.title %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/hostlistings/<%= hostlisting.id %>" class="btn btn-primary">Show</a>
           <a href="/hostlistings/<%= hostlisting.id %>/edit" class="btn btn-warning">Edit</a>

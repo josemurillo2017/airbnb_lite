@@ -22,7 +22,13 @@
 
       <% @listingreviews.each do |listingreview| %>
       <tr>
-        <td><%= listingreview.listing.title %></td>
+        <td>
+          <% if listingreview.listing.present? %>
+            <a href="/listings/<%= listingreview.listing.id %>">
+              <%= listingreview.listing.title %>
+            </a>
+          <% end %>
+        </td>
         <td><%= listingreview.accuracy %></td>
         <td><%= listingreview.communication %></td>
         <td><%= listingreview.cleanliness %></td>

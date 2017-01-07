@@ -16,8 +16,20 @@
 
       <% @hostpolicies.each do |hostpolicy| %>
       <tr>
-        <td><%= hostpolicy.listing.title %></td>
-        <td><%= hostpolicy.policy.description %></td>
+        <td>
+          <% if hostpolicy.listing.present? %>
+            <a href="/listings/<%= hostpolicy.listing.id %>">
+              <%= hostpolicy.listing.title %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if hostpolicy.policy.present? %>
+            <a href="/policies/<%= hostpolicy.policy.id %>">
+              <%= hostpolicy.policy.description %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/hostpolicies/<%= hostpolicy.id %>" class="btn btn-primary">Show</a>
           <a href="/hostpolicies/<%= hostpolicy.id %>/edit" class="btn btn-warning">Edit</a>

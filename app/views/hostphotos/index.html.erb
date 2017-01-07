@@ -16,8 +16,20 @@
 
       <% @hostphotos.each do |hostphoto| %>
       <tr>
-        <td><%= hostphoto.photo.created_at %></td>
-        <td><%= hostphoto.listing.title %></td>
+        <td>
+          <% if hostphoto.photo.present? %>
+            <a href="/photos/<%= hostphoto.photo.id %>">
+              <%= hostphoto.photo.created_at %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if hostphoto.listing.present? %>
+            <a href="/listings/<%= hostphoto.listing.id %>">
+              <%= hostphoto.listing.title %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/hostphotos/<%= hostphoto.id %>" class="btn btn-primary">Show</a>
           <a href="/hostphotos/<%= hostphoto.id %>/edit" class="btn btn-warning">Edit</a>
