@@ -1,6 +1,7 @@
 class HostphotosController < ApplicationController
   def index
-    @hostphotos = Hostphoto.page(params[:page]).per(10)
+    @q = Hostphoto.ransack(params[:q])
+    @hostphotos = @q.result(:distinct => true).includes(:listing, :photo).page(params[:page]).per(10)
 
     render("hostphotos/index.html.erb")
   end

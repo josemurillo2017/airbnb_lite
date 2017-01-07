@@ -1,6 +1,7 @@
 class HostAsGuestsController < ApplicationController
   def index
-    @host_as_guests = HostAsGuest.page(params[:page]).per(10)
+    @q = HostAsGuest.ransack(params[:q])
+    @host_as_guests = @q.result(:distinct => true).includes(:guest, :host).page(params[:page]).per(10)
 
     render("host_as_guests/index.html.erb")
   end

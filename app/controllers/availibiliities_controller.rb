@@ -1,6 +1,7 @@
 class AvailibiliitiesController < ApplicationController
   def index
-    @availibiliities = Availibiliity.page(params[:page]).per(10)
+    @q = Availibiliity.ransack(params[:q])
+    @availibiliities = @q.result(:distinct => true).includes(:listing).page(params[:page]).per(10)
 
     render("availibiliities/index.html.erb")
   end

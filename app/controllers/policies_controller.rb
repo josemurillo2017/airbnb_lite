@@ -1,6 +1,7 @@
 class PoliciesController < ApplicationController
   def index
-    @policies = Policy.page(params[:page]).per(10)
+    @q = Policy.ransack(params[:q])
+    @policies = @q.result(:distinct => true).includes(:hostpolicies).page(params[:page]).per(10)
 
     render("policies/index.html.erb")
   end

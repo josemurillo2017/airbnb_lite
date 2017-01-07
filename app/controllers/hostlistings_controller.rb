@@ -1,6 +1,7 @@
 class HostlistingsController < ApplicationController
   def index
-    @hostlistings = Hostlisting.page(params[:page]).per(10)
+    @q = Hostlisting.ransack(params[:q])
+    @hostlistings = @q.result(:distinct => true).includes(:listing, :host).page(params[:page]).per(10)
 
     render("hostlistings/index.html.erb")
   end

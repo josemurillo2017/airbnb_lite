@@ -1,6 +1,7 @@
 class HostpoliciesController < ApplicationController
   def index
-    @hostpolicies = Hostpolicy.page(params[:page]).per(10)
+    @q = Hostpolicy.ransack(params[:q])
+    @hostpolicies = @q.result(:distinct => true).includes(:listing, :policy).page(params[:page]).per(10)
 
     render("hostpolicies/index.html.erb")
   end
