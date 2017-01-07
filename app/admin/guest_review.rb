@@ -1,5 +1,7 @@
 ActiveAdmin.register GuestReview do
 
+ permit_params :guest_id, :overall_rating, :body
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
