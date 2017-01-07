@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Guest_review resource:
+  # CREATE
+  get "/guest_reviews/new", :controller => "guest_reviews", :action => "new"
+  post "/create_guest_review", :controller => "guest_reviews", :action => "create"
+
+  # READ
+  get "/guest_reviews", :controller => "guest_reviews", :action => "index"
+  get "/guest_reviews/:id", :controller => "guest_reviews", :action => "show"
+
+  # UPDATE
+  get "/guest_reviews/:id/edit", :controller => "guest_reviews", :action => "edit"
+  post "/update_guest_review/:id", :controller => "guest_reviews", :action => "update"
+
+  # DELETE
+  get "/delete_guest_review/:id", :controller => "guest_reviews", :action => "destroy"
+  #------------------------------
+
   # Routes for the Hostlisting resource:
   # CREATE
   get "/hostlistings/new", :controller => "hostlistings", :action => "new"

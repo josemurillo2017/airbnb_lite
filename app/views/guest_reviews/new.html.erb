@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @guest_review.errors.any? %>
+  <% @guest_review.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Guest Review</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_guest_review" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for guest_id -->
+      <div class="form-group">
+        <label for="guest_id" class="control-label">
+          Guest
+        </label>
+
+        <input type="text" id="guest_id" name="guest_id" placeholder="Guest" class="form-control" value="<%= @guest_review.guest_id %>">
+      </div>
+
+      <!-- Label and input for overall_rating -->
+      <div class="form-group">
+        <label for="overall_rating" class="control-label">
+          Overall rating
+        </label>
+
+        <input type="text" id="overall_rating" name="overall_rating" placeholder="Overall rating" class="form-control" value="<%= @guest_review.overall_rating %>">
+      </div>
+
+      <!-- Label and input for body -->
+      <div class="form-group">
+        <label for="body" class="control-label">
+          Body
+        </label>
+
+        <textarea id="body" name="body" placeholder="Body" class="form-control" rows="3"><%= @guest_review.body %></textarea>
+      </div>
+
+      <button class="btn btn-success">
+        Create Guest Review
+      </button>
+      or
+      <a href="/guest_reviews">Cancel</a>
+    </form>
+  </div>
+</div>
