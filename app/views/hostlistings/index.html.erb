@@ -17,7 +17,7 @@
       <% @hostlistings.each do |hostlisting| %>
       <tr>
         <td><%= hostlisting.host.created_at %></td>
-        <td><%= hostlisting.listing_id %></td>
+        <td><%= hostlisting.listing.title %></td>
         <td>
           <a href="/hostlistings/<%= hostlisting.id %>" class="btn btn-primary">Show</a>
           <a href="/hostlistings/<%= hostlisting.id %>/edit" class="btn btn-warning">Edit</a>
