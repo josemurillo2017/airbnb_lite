@@ -22,7 +22,7 @@
 
       <% @listingreviews.each do |listingreview| %>
       <tr>
-        <td><%= listingreview.listing_id %></td>
+        <td><%= listingreview.listing.title %></td>
         <td><%= listingreview.accuracy %></td>
         <td><%= listingreview.communication %></td>
         <td><%= listingreview.cleanliness %></td>
