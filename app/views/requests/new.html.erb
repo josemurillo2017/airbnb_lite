@@ -1,0 +1,63 @@
+<!-- Validation failure messages -->
+<% if @request.errors.any? %>
+  <% @request.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Request</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_request" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for guest_id -->
+      <div class="form-group">
+        <label for="guest_id" class="control-label">
+          Guest
+        </label>
+
+        <input type="text" id="guest_id" name="guest_id" placeholder="Guest" class="form-control" value="<%= @request.guest_id %>">
+      </div>
+
+      <!-- Label and input for listing_id -->
+      <div class="form-group">
+        <label for="listing_id" class="control-label">
+          Listing
+        </label>
+
+        <input type="text" id="listing_id" name="listing_id" placeholder="Listing" class="form-control" value="<%= @request.listing_id %>">
+      </div>
+
+      <!-- Label and input for date -->
+      <div class="form-group">
+        <label for="date" class="control-label">
+          Date
+        </label>
+
+        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="<%= @request.date %>">
+      </div>
+
+      <!-- Label and input for request_accepted -->
+      <div class="checkbox">
+        <label for="request_accepted">
+          <input type="checkbox" id="request_accepted" name="request_accepted" value="1" <%= "checked" if @request.request_accepted %>>
+          Request accepted
+        </label>
+      </div>
+
+      <button class="btn btn-success">
+        Create Request
+      </button>
+      or
+      <a href="/requests">Cancel</a>
+    </form>
+  </div>
+</div>
