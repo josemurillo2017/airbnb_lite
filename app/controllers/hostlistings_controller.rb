@@ -1,6 +1,6 @@
 class HostlistingsController < ApplicationController
   def index
-    @hostlistings = Hostlisting.all
+    @hostlistings = Hostlisting.page(params[:page]).per(10)
 
     render("hostlistings/index.html.erb")
   end

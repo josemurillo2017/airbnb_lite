@@ -1,6 +1,6 @@
 class HostAsGuestsController < ApplicationController
   def index
-    @host_as_guests = HostAsGuest.all
+    @host_as_guests = HostAsGuest.page(params[:page]).per(10)
 
     render("host_as_guests/index.html.erb")
   end

@@ -1,6 +1,6 @@
 class AvailibiliitiesController < ApplicationController
   def index
-    @availibiliities = Availibiliity.all
+    @availibiliities = Availibiliity.page(params[:page]).per(10)
 
     render("availibiliities/index.html.erb")
   end

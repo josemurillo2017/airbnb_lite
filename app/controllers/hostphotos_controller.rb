@@ -1,6 +1,6 @@
 class HostphotosController < ApplicationController
   def index
-    @hostphotos = Hostphoto.all
+    @hostphotos = Hostphoto.page(params[:page]).per(10)
 
     render("hostphotos/index.html.erb")
   end

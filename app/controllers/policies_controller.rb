@@ -1,6 +1,6 @@
 class PoliciesController < ApplicationController
   def index
-    @policies = Policy.all
+    @policies = Policy.page(params[:page]).per(10)
 
     render("policies/index.html.erb")
   end

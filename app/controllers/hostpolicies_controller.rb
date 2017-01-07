@@ -1,6 +1,6 @@
 class HostpoliciesController < ApplicationController
   def index
-    @hostpolicies = Hostpolicy.all
+    @hostpolicies = Hostpolicy.page(params[:page]).per(10)
 
     render("hostpolicies/index.html.erb")
   end
