@@ -17,7 +17,7 @@
 
       <% @guest_reviews.each do |guest_review| %>
       <tr>
-        <td><%= guest_review.guest_id %></td>
+        <td><%= guest_review.guest.created_at %></td>
         <td><%= guest_review.overall_rating %></td>
         <td><%= guest_review.body %></td>
         <td>
