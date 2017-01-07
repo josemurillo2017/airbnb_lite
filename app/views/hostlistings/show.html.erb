@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h3>Hostlisting #<%= @hostlisting.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Host</dt>
+      <dd><%= @hostlisting.host_id %></dd>
+
+      <dt>Listing</dt>
+      <dd><%= @hostlisting.listing_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/hostlistings" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/hostlistings/<%= @hostlisting.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_hostlisting/<%= @hostlisting.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

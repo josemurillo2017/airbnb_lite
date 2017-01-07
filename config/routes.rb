@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Hostlisting resource:
+  # CREATE
+  get "/hostlistings/new", :controller => "hostlistings", :action => "new"
+  post "/create_hostlisting", :controller => "hostlistings", :action => "create"
+
+  # READ
+  get "/hostlistings", :controller => "hostlistings", :action => "index"
+  get "/hostlistings/:id", :controller => "hostlistings", :action => "show"
+
+  # UPDATE
+  get "/hostlistings/:id/edit", :controller => "hostlistings", :action => "edit"
+  post "/update_hostlisting/:id", :controller => "hostlistings", :action => "update"
+
+  # DELETE
+  get "/delete_hostlisting/:id", :controller => "hostlistings", :action => "destroy"
+  #------------------------------
+
   # Routes for the Request resource:
   # CREATE
   get "/requests/new", :controller => "requests", :action => "new"

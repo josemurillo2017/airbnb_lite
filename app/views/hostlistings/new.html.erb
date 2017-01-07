@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @hostlisting.errors.any? %>
+  <% @hostlisting.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Hostlisting</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_hostlisting" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for host_id -->
+      <div class="form-group">
+        <label for="host_id" class="control-label">
+          Host
+        </label>
+
+        <input type="text" id="host_id" name="host_id" placeholder="Host" class="form-control" value="<%= @hostlisting.host_id %>">
+      </div>
+
+      <!-- Label and input for listing_id -->
+      <div class="form-group">
+        <label for="listing_id" class="control-label">
+          Listing
+        </label>
+
+        <input type="text" id="listing_id" name="listing_id" placeholder="Listing" class="form-control" value="<%= @hostlisting.listing_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Hostlisting
+      </button>
+      or
+      <a href="/hostlistings">Cancel</a>
+    </form>
+  </div>
+</div>
