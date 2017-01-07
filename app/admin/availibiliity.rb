@@ -1,5 +1,7 @@
 ActiveAdmin.register Availibiliity do
 
+ permit_params :listing_id, :date, :price, :is_available, :message
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
