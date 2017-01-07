@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Policy resource:
+  # CREATE
+  get "/policies/new", :controller => "policies", :action => "new"
+  post "/create_policy", :controller => "policies", :action => "create"
+
+  # READ
+  get "/policies", :controller => "policies", :action => "index"
+  get "/policies/:id", :controller => "policies", :action => "show"
+
+  # UPDATE
+  get "/policies/:id/edit", :controller => "policies", :action => "edit"
+  post "/update_policy/:id", :controller => "policies", :action => "update"
+
+  # DELETE
+  get "/delete_policy/:id", :controller => "policies", :action => "destroy"
+  #------------------------------
+
   # Routes for the Photo resource:
   # CREATE
   get "/photos/new", :controller => "photos", :action => "new"

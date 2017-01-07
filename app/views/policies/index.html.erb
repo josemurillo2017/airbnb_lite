@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h1>
+    Policies
+    <a href="/policies/new" class="btn btn-lg btn-success">New Policy</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @policies.each do |policy| %>
+      <tr>
+        <td><%= policy.description %></td>
+        <td>
+          <a href="/policies/<%= policy.id %>" class="btn btn-primary">Show</a>
+          <a href="/policies/<%= policy.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_policy/<%= policy.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
