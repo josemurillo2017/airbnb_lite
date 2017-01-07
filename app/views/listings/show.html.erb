@@ -53,3 +53,220 @@
     </div>
   </div>
 </div>
+
+<!-- A Listing has many hostphotos -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Hostphotos
+      </li>
+
+      <% @listing.hostphotos.each do |hostphoto| %>
+        <li class="list-group-item">
+          <a href="/hostphotos/<%= hostphoto.id %>">
+            <%= hostphoto.created_at %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/hostphotos/<%= hostphoto.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/hostphotos/<%= hostphoto.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_hostphoto/<%= hostphoto.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Listing has many hostpolicies -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Hostpolicies
+      </li>
+
+      <% @listing.hostpolicies.each do |hostpolicy| %>
+        <li class="list-group-item">
+          <a href="/hostpolicies/<%= hostpolicy.id %>">
+            <%= hostpolicy.listing_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/hostpolicies/<%= hostpolicy.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/hostpolicies/<%= hostpolicy.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_hostpolicy/<%= hostpolicy.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Listing has many availibiliities -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Availibiliities
+      </li>
+
+      <% @listing.availibiliities.each do |availibiliity| %>
+        <li class="list-group-item">
+          <a href="/availibiliities/<%= availibiliity.id %>">
+            <%= availibiliity.listing_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/availibiliities/<%= availibiliity.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/availibiliities/<%= availibiliity.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_availibiliity/<%= availibiliity.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Listing has many hostlistings -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Hostlistings
+      </li>
+
+      <% @listing.hostlistings.each do |hostlisting| %>
+        <li class="list-group-item">
+          <a href="/hostlistings/<%= hostlisting.id %>">
+            <%= hostlisting.host_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/hostlistings/<%= hostlisting.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/hostlistings/<%= hostlisting.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_hostlisting/<%= hostlisting.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Listing has many requests -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Requests
+      </li>
+
+      <% @listing.requests.each do |request| %>
+        <li class="list-group-item">
+          <a href="/requests/<%= request.id %>">
+            <%= request.guest_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/requests/<%= request.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/requests/<%= request.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_request/<%= request.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Listing has many listingreviews -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Listingreviews
+      </li>
+
+      <% @listing.listingreviews.each do |listingreview| %>
+        <li class="list-group-item">
+          <a href="/listingreviews/<%= listingreview.id %>">
+            <%= listingreview.listing_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/listingreviews/<%= listingreview.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/listingreviews/<%= listingreview.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_listingreview/<%= listingreview.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Listing has many bookmarks -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Bookmarks
+      </li>
+
+      <% @listing.bookmarks.each do |bookmark| %>
+        <li class="list-group-item">
+          <a href="/bookmarks/<%= bookmark.id %>">
+            <%= bookmark.guest_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/bookmarks/<%= bookmark.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/bookmarks/<%= bookmark.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_bookmark/<%= bookmark.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
