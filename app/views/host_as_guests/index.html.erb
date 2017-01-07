@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>
+    Host as guests
+    <a href="/host_as_guests/new" class="btn btn-lg btn-success">New Host as guest</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Host</th>
+        <th>Guest</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @host_as_guests.each do |host_as_guest| %>
+      <tr>
+        <td><%= host_as_guest.host_id %></td>
+        <td><%= host_as_guest.guest_id %></td>
+        <td>
+          <a href="/host_as_guests/<%= host_as_guest.id %>" class="btn btn-primary">Show</a>
+          <a href="/host_as_guests/<%= host_as_guest.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_host_as_guest/<%= host_as_guest.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
