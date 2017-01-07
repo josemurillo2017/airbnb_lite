@@ -16,7 +16,7 @@
 
       <% @hostpolicies.each do |hostpolicy| %>
       <tr>
-        <td><%= hostpolicy.listing_id %></td>
+        <td><%= hostpolicy.listing.title %></td>
         <td><%= hostpolicy.policy_id %></td>
         <td>
           <a href="/hostpolicies/<%= hostpolicy.id %>" class="btn btn-primary">Show</a>
