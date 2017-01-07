@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Hostpolicy resource:
+  # CREATE
+  get "/hostpolicies/new", :controller => "hostpolicies", :action => "new"
+  post "/create_hostpolicy", :controller => "hostpolicies", :action => "create"
+
+  # READ
+  get "/hostpolicies", :controller => "hostpolicies", :action => "index"
+  get "/hostpolicies/:id", :controller => "hostpolicies", :action => "show"
+
+  # UPDATE
+  get "/hostpolicies/:id/edit", :controller => "hostpolicies", :action => "edit"
+  post "/update_hostpolicy/:id", :controller => "hostpolicies", :action => "update"
+
+  # DELETE
+  get "/delete_hostpolicy/:id", :controller => "hostpolicies", :action => "destroy"
+  #------------------------------
+
   # Routes for the Policy resource:
   # CREATE
   get "/policies/new", :controller => "policies", :action => "new"
