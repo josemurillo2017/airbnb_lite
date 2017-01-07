@@ -81,6 +81,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_hostphoto" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for photo_id -->
+      <div class="form-group">
+        <label for="photo_id" class="control-label">
+          Photo
+        </label>
+
+        <%= select_tag(:photo_id, options_from_collection_for_select(Photo.all, :id, :created_at), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for listing_id -->
+      <input type="hidden" name="listing_id" value="<%= @listing.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Hostphoto
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -112,6 +135,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_hostpolicy" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for listing_id -->
+      <input type="hidden" name="listing_id" value="<%= @listing.id %>">
+
+      <!-- Label and input for policy_id -->
+      <div class="form-group">
+        <label for="policy_id" class="control-label">
+          Policy
+        </label>
+
+        <%= select_tag(:policy_id, options_from_collection_for_select(Policy.all, :id, :description), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Hostpolicy
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -143,6 +189,55 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_availibiliity" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for listing_id -->
+      <input type="hidden" name="listing_id" value="<%= @listing.id %>">
+
+      <!-- Label and input for date -->
+      <div class="form-group">
+        <label for="date" class="control-label">
+          Date
+        </label>
+
+        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for price -->
+      <div class="form-group">
+        <label for="price" class="control-label">
+          Price
+        </label>
+
+        <input type="text" id="price" name="price" placeholder="Price" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for is_available -->
+      <div class="checkbox">
+        <label for="is_available">
+          <input type="checkbox" id="is_available" name="is_available" value="1" <%= "checked" if @availibiliity.is_available %>>
+          Is available
+        </label>
+      </div>
+
+      <!-- Label and input for message -->
+      <div class="form-group">
+        <label for="message" class="control-label">
+          Message
+        </label>
+
+        <input type="text" id="message" name="message" placeholder="Message" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Availibiliity
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -174,6 +269,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_hostlisting" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for host_id -->
+      <div class="form-group">
+        <label for="host_id" class="control-label">
+          Host
+        </label>
+
+        <%= select_tag(:host_id, options_from_collection_for_select(Host.all, :id, :created_at), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for listing_id -->
+      <input type="hidden" name="listing_id" value="<%= @listing.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Hostlisting
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -205,6 +323,46 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_request" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for guest_id -->
+      <div class="form-group">
+        <label for="guest_id" class="control-label">
+          Guest
+        </label>
+
+        <%= select_tag(:guest_id, options_from_collection_for_select(Guest.all, :id, :created_at), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for listing_id -->
+      <input type="hidden" name="listing_id" value="<%= @listing.id %>">
+
+      <!-- Label and input for date -->
+      <div class="form-group">
+        <label for="date" class="control-label">
+          Date
+        </label>
+
+        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for request_accepted -->
+      <div class="checkbox">
+        <label for="request_accepted">
+          <input type="checkbox" id="request_accepted" name="request_accepted" value="1" <%= "checked" if @request.request_accepted %>>
+          Request accepted
+        </label>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Request
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -236,6 +394,83 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_listingreview" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for listing_id -->
+      <input type="hidden" name="listing_id" value="<%= @listing.id %>">
+
+      <!-- Label and input for accuracy -->
+      <div class="form-group">
+        <label for="accuracy" class="control-label">
+          Accuracy
+        </label>
+
+        <input type="text" id="accuracy" name="accuracy" placeholder="Accuracy" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for communication -->
+      <div class="form-group">
+        <label for="communication" class="control-label">
+          Communication
+        </label>
+
+        <input type="text" id="communication" name="communication" placeholder="Communication" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for cleanliness -->
+      <div class="form-group">
+        <label for="cleanliness" class="control-label">
+          Cleanliness
+        </label>
+
+        <input type="text" id="cleanliness" name="cleanliness" placeholder="Cleanliness" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for location -->
+      <div class="form-group">
+        <label for="location" class="control-label">
+          Location
+        </label>
+
+        <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for check_in -->
+      <div class="form-group">
+        <label for="check_in" class="control-label">
+          Check in
+        </label>
+
+        <input type="text" id="check_in" name="check_in" placeholder="Check in" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for value -->
+      <div class="form-group">
+        <label for="value" class="control-label">
+          Value
+        </label>
+
+        <input type="text" id="value" name="value" placeholder="Value" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for body -->
+      <div class="form-group">
+        <label for="body" class="control-label">
+          Body
+        </label>
+
+        <textarea id="body" name="body" placeholder="Body" class="form-control" rows="3"></textarea>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Listingreview
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -267,6 +502,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_bookmark" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for guest_id -->
+      <div class="form-group">
+        <label for="guest_id" class="control-label">
+          Guest
+        </label>
+
+        <%= select_tag(:guest_id, options_from_collection_for_select(Guest.all, :id, :created_at), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for listing_id -->
+      <input type="hidden" name="listing_id" value="<%= @listing.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Bookmark
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

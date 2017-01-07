@@ -6,6 +6,7 @@ class PoliciesController < ApplicationController
   end
 
   def show
+    @hostpolicy = Hostpolicy.new
     @policy = Policy.find(params[:id])
 
     render("policies/show.html.erb")
