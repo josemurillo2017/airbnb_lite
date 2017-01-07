@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :hosts
+  # Routes for the Host resource:
+  # READ
+  get "/hosts", :controller => "hosts", :action => "index"
+  get "/hosts/:id", :controller => "hosts", :action => "show"
+
+
   # Routes for the Message resource:
   # CREATE
   get "/messages/new", :controller => "messages", :action => "new"
