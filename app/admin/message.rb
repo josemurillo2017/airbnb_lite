@@ -1,5 +1,7 @@
 ActiveAdmin.register Message do
 
+ permit_params :host_id, :guest_id, :from_host, :message
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
