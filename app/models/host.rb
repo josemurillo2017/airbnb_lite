@@ -1,6 +1,9 @@
 class Host < ApplicationRecord
   # Direct associations
 
+  has_many   :messages,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
