@@ -1,5 +1,7 @@
 ActiveAdmin.register Listingreview do
 
+ permit_params :listing_id, :accuracy, :communication, :cleanliness, :location, :check_in, :value, :body
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
