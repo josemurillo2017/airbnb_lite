@@ -19,7 +19,7 @@
 
       <% @availibiliities.each do |availibiliity| %>
       <tr>
-        <td><%= availibiliity.listing_id %></td>
+        <td><%= availibiliity.listing.title %></td>
         <td><%= availibiliity.date %></td>
         <td><%= availibiliity.price %></td>
         <td><%= availibiliity.is_available %></td>
