@@ -1,5 +1,7 @@
 ActiveAdmin.register Listing do
 
+ permit_params :title, :private_room, :entire_home, :description, :no_of_bedrooms, :no_of_bathrooms, :no_of_beds, :max_occupancy, :city, :neighborhood, :default_price_per_night
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
