@@ -33,7 +33,7 @@
           Policy
         </label>
 
-        <input type="text" id="policy_id" name="policy_id" placeholder="Policy" class="form-control" value="<%= @hostpolicy.policy_id %>">
+        <%= select_tag(:policy_id, options_from_collection_for_select(Policy.all, :id, :description, @hostpolicy.policy_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
