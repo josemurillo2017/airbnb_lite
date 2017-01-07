@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Availibiliity resource:
+  # CREATE
+  get "/availibiliities/new", :controller => "availibiliities", :action => "new"
+  post "/create_availibiliity", :controller => "availibiliities", :action => "create"
+
+  # READ
+  get "/availibiliities", :controller => "availibiliities", :action => "index"
+  get "/availibiliities/:id", :controller => "availibiliities", :action => "show"
+
+  # UPDATE
+  get "/availibiliities/:id/edit", :controller => "availibiliities", :action => "edit"
+  post "/update_availibiliity/:id", :controller => "availibiliities", :action => "update"
+
+  # DELETE
+  get "/delete_availibiliity/:id", :controller => "availibiliities", :action => "destroy"
+  #------------------------------
+
   # Routes for the Hostpolicy resource:
   # CREATE
   get "/hostpolicies/new", :controller => "hostpolicies", :action => "new"
